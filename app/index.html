@@ -12,7 +12,7 @@
 <body ng-app="myApp" ng-controller="AppCtrl">
   <!-- <div ng-view></div> -->
     <div class="top-menu">
-    <div class="orange-top">
+    <div class="blue-top">
       <div class="loc-help">Location:</div>
       <div class="loc-form">
         <div class="input-group">
@@ -24,6 +24,8 @@
       </div>
     </div>
     <div class="middle-content">
+      <div class="weather-start {{welcome}}"> Hey there! Enter a city above. Eg. Austin, TX, New york, NY, Atlanta, GA </div>
+      <div class="weather-not-found {{notFound}}"> Opps we can't find the city you entered! Try another.</div>
       <div class="weather-icon animated {{displayed}}" data-icon="{{weathericon}}"></div>
       <div class="weather-degree animated {{displayed}}">{{maintemp}}&deg</div>
       <div class="weather-small animated {{displayed}}">
