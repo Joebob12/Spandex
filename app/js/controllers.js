@@ -4,15 +4,37 @@
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function($scope, $http) {
+
+  	$scope.weathericon = "B";
+	$scope.maintemp;
+	$scope.hightemp;
+	$scope.lowtemp;
+	$scope.wind;
+	$scope.humd;
   	$scope.loadData = function (location) {
   		$scope.loading = true;
-  		alert(location);
 		$http({method: 'GET', url: 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&mode=json&units=imperial'}).
 		    success(function(data, status, headers, config) {
 		      // this callback will be called asynchronously
 		      // when the response is available
 		      console.log(data);
-		      switch(data.weather[0].icon) {
+		      // this function passes the json reponse and we decide on the icon
+		      $scope.checkIcon(data.weather[0].icon);
+		      // assign response json to matching varibles
+		      $scope.maintemp = data.main.temp.toFixed(0);
+		      $scope.hightemp = data.main.temp_max.toFixed(0);
+		      $scope.lowtemp = data.main.temp_min.toFixed(0);
+		      $scope.wind = data.wind.speed.toFixed(0);
+		      $scope.humd = data.main.humidity.toFixed(0);
+		    }).
+		    error(function(data, status, headers, config) {
+		      // called asynchronously if an error occurs
+		      // or server returns response with an error status.
+		    });
+  	}
+
+  	$scope.checkIcon = function (iconres) {
+  		switch(iconres) {
 		      	case "01d":
 		      		$scope.weathericon = "B";
 		      		break;
@@ -69,16 +91,6 @@ angular.module('myApp.controllers', []).
 		      		break;
 
 		      }
-		      $scope.maintemp = data.main.temp.toFixed(0);
-		      $scope.hightemp = data.main.temp_max.toFixed(0);
-		      $scope.lowtemp = data.main.temp_min.toFixed(0);
-		      $scope.wind = data.wind.speed.toFixed(0);
-		      $scope.humd = data.main.humidity.toFixed(0);
-		    }).
-		    error(function(data, status, headers, config) {
-		      // called asynchronously if an error occurs
-		      // or server returns response with an error status.
-		    });
   	}
 
   });
