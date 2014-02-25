@@ -8,6 +8,6 @@ So clone and place it in your server and navigate to localhost:myport/spandex/ap
 
 ## Makes use of:
 This app uses
-(METEOCONS) [http://www.alessioatzeni.com/meteocons/]
-(OpenWeatherMap) [http://openweathermap.org/]
-(AngularJS) [http://angularjs.org/]
+(METEOCONS)[http://www.alessioatzeni.com/meteocons/]
+(OpenWeatherMap)[http://openweathermap.org/]
+(AngularJS)[http://angularjs.org/]
