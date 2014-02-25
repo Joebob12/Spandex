@@ -7,32 +7,31 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
 </head>
-<body ng-app="myApp">
-  <div ng-view></div>
+<body ng-app="myApp" ng-controller="AppCtrl">
+  <!-- <div ng-view></div> -->
     <div class="top-menu">
     <div class="orange-top">
       <div class="loc-help">Location:</div>
       <div class="loc-form">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Vienna, VA">
+          <input type="text" class="form-control" placeholder="Vienna, VA" ng-model="data.location">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
+              <button class="btn btn-default" type="button" lookup-location="loadData(data.location)">Go!</button>
             </span>
         </div><!-- /input-group -->
       </div>
     </div>
     <div class="middle-content">
-      <div class="weather-icon" data-icon="B"></div>
-      <div class="weather-degree">46 &deg</div>
+      <div class="weather-icon" data-icon="{{weathericon}}"></div>
+      <div class="weather-degree">{{maintemp}}&deg</div>
       <div class="weather-small">
-        <div class="weather-high">46</br>High</div>
-        <div class="weather-low">46</br>Low</div>
-        <div class="weather-wind">46</br>Wind</div>
-        <div class="weather-hum">46</br>Hum.</div>
+        <div class="weather-high">{{hightemp}}&deg</br>High</div>
+        <div class="weather-low">{{lowtemp}}&deg</br>Low</div>
+        <div class="weather-wind">{{wind}}</br>Wind</div>
+        <div class="weather-hum">{{humd}}</br>Hum.</div>
       </div>
     </div>
   </div>
-  <div>Angular seed app: v<span app-version></span></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>  -->
