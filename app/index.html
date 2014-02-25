@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="css/app.css"/>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+  <!-- sweet animations -->
+  <link rel="stylesheet" href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css'>
 </head>
 <body ng-app="myApp" ng-controller="AppCtrl">
   <!-- <div ng-view></div> -->
@@ -22,9 +24,9 @@
       </div>
     </div>
     <div class="middle-content">
-      <div class="weather-icon" data-icon="{{weathericon}}"></div>
-      <div class="weather-degree">{{maintemp}}&deg</div>
-      <div class="weather-small">
+      <div class="weather-icon animated {{displayed}}" data-icon="{{weathericon}}"></div>
+      <div class="weather-degree animated {{displayed}}">{{maintemp}}&deg</div>
+      <div class="weather-small animated {{displayed}}">
         <div class="weather-high">{{hightemp}}&deg</br>High</div>
         <div class="weather-low">{{lowtemp}}&deg</br>Low</div>
         <div class="weather-wind">{{wind}}</br>Wind</div>

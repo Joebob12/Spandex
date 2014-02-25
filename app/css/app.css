@@ -133,6 +133,10 @@ body {
   margin-top: -0px;
 }
 
+.hideit {
+  display: none;
+}
+
 [data-icon]:before {
   font-family: 'MeteoconsRegular';
   content: attr(data-icon);

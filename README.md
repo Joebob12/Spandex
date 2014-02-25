@@ -11,3 +11,4 @@ This app uses
 [METEOCONS](http://www.alessioatzeni.com/meteocons/)
 [OpenWeatherMap](http://openweathermap.org/)
 [AngularJS](http://angularjs.org/)
+[Animate.css](http://http://daneden.github.io/animate.css/)

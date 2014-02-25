@@ -11,8 +11,10 @@ angular.module('myApp.controllers', []).
 	$scope.lowtemp;
 	$scope.wind;
 	$scope.humd;
+	$scope.displayed = 'hideit';
   	$scope.loadData = function (location) {
   		$scope.loading = true;
+  		$scope.displayed = 'hideit';
 		$http({method: 'GET', url: 'http://api.openweathermap.org/data/2.5/weather?q='+location+'&mode=json&units=imperial'}).
 		    success(function(data, status, headers, config) {
 		      // this callback will be called asynchronously
@@ -26,6 +28,7 @@ angular.module('myApp.controllers', []).
 		      $scope.lowtemp = data.main.temp_min.toFixed(0);
 		      $scope.wind = data.wind.speed.toFixed(0);
 		      $scope.humd = data.main.humidity.toFixed(0);
+		      $scope.displayed = 'flipInY';
 		    }).
 		    error(function(data, status, headers, config) {
 		      // called asynchronously if an error occurs
